@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DIVE Data Learning Cohort — Enhanced, interactive, accessible index (search, filter, progress, notes)." />
+  <meta property="og:title" content="DIVE Data Learning Cohort — Enhanced" />
+  <meta property="og:description" content="Searchable, filterable video index with watch tracking, notes, and study planning." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <title>DIVE Data Learning Cohort — Enhanced</title>
+  <link rel="preload" href="assets/data/videos.json" as="fetch" crossorigin="anonymous">
+  <link rel="preload" href="assets/data/resources.json" as="fetch" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"DIVE Data Learning Cohort — Enhanced Index","description":"Searchable, filterable video index with progress tracking."}
+  </script>
+</head>
+<body>
+  <a class="sr-only" href="#content">Skip to content</a>
+  <div class="progress-wrap" aria-hidden="true"><div id="progress-bar" class="progress-bar"></div></div>
+  <header class="hero" role="banner">
+    <div class="container">
+      <div class="header-actions" role="group" aria-label="Page actions">
+        <button id="theme-toggle" type="button" aria-pressed="true" title="Toggle dark mode">Dark mode: On</button>
+        <button id="export-notes" type="button" title="Export notes as Markdown">Export Notes</button>
+      </div>
+      <h1>DIVE Data Learning Cohort</h1>
+      <p class="subtitle">Enhanced Video Index: search, filter, track progress, and take notes.</p>
+      <div class="timeline" aria-label="Project phases">
+        <span>Problem</span><span class="dot" aria-hidden="true"></span>
+        <span>Data</span><span class="dot" aria-hidden="true"></span>
+        <span>Pipeline</span><span class="dot" aria-hidden="true"></span>
+        <span>Evaluation</span><span class="dot" aria-hidden="true"></span>
+        <span>Story & Delivery</span>
+      </div>
+
+      <!-- Toolbar moved into header -->
+      <section aria-labelledby="toolbar-title" class="toolbar" role="region">
+        <h2 id="toolbar-title" class="sr-only">Search and filters</h2>
+        <div class="row" role="group" aria-label="Search and filter controls">
+          <input id="search" type="search" placeholder="Search videos, channels, or reasons to watch…" aria-label="Search videos" />
+          <select id="filter-section" aria-label="Filter by section">
+            <option value="">All sections</option>
+            <option value="A">A — Framing & Scoping</option>
+            <option value="B">B — Visual Story & Executive Comms</option>
+            <option value="C">C — BI Data Modeling & Dashboard Design</option>
+            <option value="D">D — Access, Accessibility & Performance</option>
+            <option value="E">E — Data Quality & Reproducible Pipelines</option>
+            <option value="F">F — Excel & Power Query Essentials</option>
+            <option value="G">G — Python for Analysts & Reproducibility</option>
+            <option value="H">H — Evaluation & ML Metrics</option>
+            <option value="I">I — Geospatial & Mapping</option>
+            <option value="J">J — Forecasting & Time Series</option>
+            <option value="K">K — Public‑Sector Exemplars</option>
+            <option value="L">L — Ethics, Privacy & Inclusive Design</option>
+          </select>
+          <select id="filter-channel" aria-label="Filter by channel">
+            <option value="">All channels</option>
+          </select>
+          <button id="filter-watchlist" type="button" aria-pressed="false" title="Show watchlist only">Watchlist</button>
+          <button id="filter-watched" type="button" aria-pressed="false" title="Show watched">Watched</button>
+        </div>
+        <p class="hint">Tip: Press “/” to focus search. Filters and watchlist persist on this device.</p>
+      </section>
+    </div>
+  </header>
+
+  <main class="main" id="main" role="main">
+    <nav id="toc" class="toc" aria-label="On this page">
+      <h2>Sections</h2>
+      <button class="toc-toggle" type="button" aria-expanded="false" aria-controls="toc-list">Show/Hide sections</button>
+      <ul id="toc-list">
+  <li><a href="#section-A">A) Framing & Scoping</a></li>
+  <li><a href="#section-B">B) Visual Story & Executive Comms</a></li>
+  <li><a href="#section-C">C) BI Data Modeling & Dashboard Design</a></li>
+  <li><a href="#section-D">D) Access, Accessibility & Performance</a></li>
+  <li><a href="#section-E">E) Data Quality & Reproducible Pipelines</a></li>
+  <li><a href="#section-F">F) Excel & Power Query Essentials</a></li>
+  <li><a href="#section-G">G) Python for Analysts & Reproducibility</a></li>
+  <li><a href="#section-H">H) Evaluation & ML Metrics</a></li>
+  <li><a href="#section-I">I) Geospatial & Mapping</a></li>
+  <li><a href="#section-J">J) Forecasting & Time Series</a></li>
+  <li><a href="#section-K">K) Public‑Sector Exemplars</a></li>
+  <li><a href="#section-L">L) Ethics, Privacy & Inclusive Design</a></li>
+      </ul>
+    </nav>
+
+  
+
+    
+
+    <section id="content" aria-label="Video results">
+      <!-- Invisible anchors for pre-JS deep links, kept within content column -->
+      <div id="section-A" class="sr-only" aria-hidden="true"></div>
+      <div id="section-B" class="sr-only" aria-hidden="true"></div>
+      <div id="section-C" class="sr-only" aria-hidden="true"></div>
+      <div id="section-D" class="sr-only" aria-hidden="true"></div>
+      <div id="section-E" class="sr-only" aria-hidden="true"></div>
+      <div id="section-F" class="sr-only" aria-hidden="true"></div>
+      <div id="section-G" class="sr-only" aria-hidden="true"></div>
+  <div id="section-H" class="sr-only" aria-hidden="true"></div>
+  <div id="section-I" class="sr-only" aria-hidden="true"></div>
+  <div id="section-J" class="sr-only" aria-hidden="true"></div>
+  <div id="section-K" class="sr-only" aria-hidden="true"></div>
+  <div id="section-L" class="sr-only" aria-hidden="true"></div>
+      <div id="loading" class="placeholder">Loading videos…</div>
+    </section>
+  </main>
+
+  <noscript>
+    <div class="container" style="margin: 24px auto; padding: 16px;">
+      <p>JavaScript is disabled. This enhanced index needs JS for search, filters, and progress. Please enable JavaScript.</p>
+    </div>
+  </noscript>
+
+  <!-- Inline JSON fallbacks for file:// viewing (used if fetch fails) -->
+  <script id="videos-inline" type="application/json">
+$VIDEOS
+  </script>
+  <script id="resources-inline" type="application/json">
+$RES
+  </script>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Node / tooling
+node_modules/
+coverage/
+
+# Python
+__pycache__/
+.venv/
+.env
+
+# VS Code
+.vscode/
+.history/
+
+# Logs
+*.log
+

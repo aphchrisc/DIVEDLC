@@ -1,0 +1,50 @@
+{
+  "A": [
+    { "title": "Problem Statement template", "href": "assets/resources/problem-statement-template.md" },
+    { "title": "Success Metric Worksheet", "href": "assets/resources/success-metric-worksheet.md" }
+  ],
+  "B": [
+    { "title": "Executive Slide Checklist", "href": "assets/resources/executive-slide-checklist.md" },
+    { "title": "Narrative Arc Worksheet", "href": "assets/resources/narrative-arc-worksheet.md" }
+  ],
+  "C": [
+    { "title": "Dashboard Accessibility checklist", "href": "assets/resources/dashboard-accessibility-checklist.md" },
+    { "title": "Dashboard Wireframe Template", "href": "assets/resources/dashboard-wireframe-template.md" }
+  ],
+  "D": [
+    { "title": "RLS Planning Worksheet", "href": "assets/resources/rls-planning-worksheet.md" },
+    { "title": "Performance Tuning Checklist", "href": "assets/resources/performance-tuning-checklist.md" }
+  ],
+  "E": [
+    { "title": "Data Quality Plan Checklist", "href": "assets/resources/data-quality-plan-checklist.md" },
+    { "title": "Refresh & Dependency Matrix", "href": "assets/resources/refresh-dependency-matrix.md" }
+  ],
+  "F": [
+    { "title": "Power Query ETL Checklist", "href": "assets/resources/power-query-etl-checklist.md" },
+    { "title": "Excel Dashboard QA Checklist", "href": "assets/resources/excel-dashboard-qa-checklist.md" }
+  ],
+  "G": [
+    { "title": "Notebook Reproducibility Checklist", "href": "assets/resources/notebook-reproducibility-checklist.md" },
+    { "title": "Git Workflow Quickstart", "href": "assets/resources/git-workflow-quickstart.md" }
+  ],
+  "H": [
+    { "title": "Model Evaluation Plan", "href": "assets/resources/model-evaluation-plan.md" },
+    { "title": "Confusion Matrix Interpretation Guide", "href": "assets/resources/confusion-matrix-interpretation-guide.md" }
+  ],
+  "I": [
+    { "title": "Map Design Checklist", "href": "assets/resources/map-design-checklist.md" },
+    { "title": "Geocoding Data Prep Checklist", "href": "assets/resources/geocoding-data-prep-checklist.md" }
+  ],
+  "J": [
+    { "title": "Forecast Readiness Checklist", "href": "assets/resources/forecast-readiness-checklist.md" },
+    { "title": "Backtesting Plan Template", "href": "assets/resources/backtesting-plan-template.md" }
+  ],
+  "K": [
+    { "title": "Stakeholder Alignment Questions", "href": "assets/resources/stakeholder-alignment-questions.md" },
+    { "title": "KPI Catalog Template", "href": "assets/resources/kpi-catalog-template.md" }
+  ],
+  "L": [
+    { "title": "Data Privacy & Ethics Checklist", "href": "assets/resources/data-privacy-ethics-checklist.md" },
+    { "title": "Bias & Fairness Risk Log", "href": "assets/resources/bias-fairness-risk-log.md" }
+  ]
+}
