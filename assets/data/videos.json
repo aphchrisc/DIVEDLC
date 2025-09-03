@@ -9,7 +9,12 @@
         {"title": "Decision Intelligence Q&A — Cassie Kozyrkov (ex‑Google)", "href": "https://www.youtube.com/watch?v=pRtGqfYLCFk", "channel": "Cassie Kozyrkov", "description": "Pragmatic framing of decisions vs analysis; rapid Q&A on metrics and validation."},
         {"title": "Decision Intelligence (talk)", "href": "https://www.youtube.com/watch?v=xmwyTYAeAl4", "channel": "Cassie Kozyrkov / conference", "description": "What DI is and how it reduces Type III error in projects."},
         {"title": "GCP Podcast #128: Decision Intelligence with Cassie", "href": "https://www.youtube.com/watch?v=x1k37Na1iLc", "channel": "GCP Podcast", "description": "Stakeholder-friendly articulation of decisions-first analytics."},
-        {"title": "Making Better Decisions with Cassie Kozyrkov", "href": "https://www.youtube.com/watch?v=pksW1EAVIHI", "channel": "DataCamp", "description": "Broader view of decision intelligence in organizations."}
+  {"title": "Making Better Decisions with Cassie Kozyrkov", "href": "https://www.youtube.com/watch?v=pksW1EAVIHI", "channel": "DataCamp", "description": "Broader view of decision intelligence in organizations."},
+  {"title": "Data Analytics Life Cycle: A Recipe for Success!", "href": "https://www.youtube.com/watch?v=SsuDOWGKHBY", "channel": "Johns Hopkins Data Science Lab", "description": "A practical lifecycle overview from framing to delivery."},
+  {"title": "Question Formulation (HR Analytics Project Life Cycle)", "href": "https://www.youtube.com/watch?v=3TxiVitYYqQ", "channel": "Chandoo", "description": "Techniques to craft answerable, decision-focused questions."},
+  {"title": "Understanding the Problem Statement in Data Analytics (End‑to‑End)", "href": "https://www.youtube.com/watch?v=USd0r6TgnYE", "channel": "Data Tutorials", "description": "Define scope, actors, and success signals before analysis."},
+  {"title": "How to Frame a Business Problem in ML", "href": "https://www.youtube.com/watch?v=ytspS8yVPrk", "channel": "Krish Naik", "description": "Translate business goals into ML-ready problem statements."},
+  {"title": "Certified Analytics Professional Refresher: Methodology Overview", "href": "https://www.youtube.com/watch?v=juO0_P3fAC4", "channel": "INFORMS / CAP", "description": "CAP methodology walkthrough for analytics lifecycle."}
       ]
     },
     {
@@ -19,7 +24,15 @@
         {"title": "Effective Data Storytelling — Brent Dykes", "href": "https://www.youtube.com/watch?v=8jExYdy5xzA", "channel": "Brent Dykes / conference talk", "description": "The 'so‑what / now‑what' structure for action."},
         {"title": "Storytelling with Data — Cole Nussbaumer Knaflic (Talks at Google)", "href": "https://www.youtube.com/watch?v=8EMW7io4rSI", "channel": "Talks at Google", "description": "Concrete graph makeovers; minimalism and focus."},
         {"title": "transform: a storytelling with data mini‑workshop (live)", "href": "https://www.youtube.com/watch?v=PoGv0dViLAo", "channel": "storytelling with data", "description": "Fast slide/report improvements with live examples."},
-        {"title": "Hans Rosling — The best stats you've ever seen", "href": "https://www.youtube.com/watch?v=hVimVzgtD6w", "channel": "TED", "description": "Benchmark for engaging explanatory visuals."}
+  {"title": "Hans Rosling — The best stats you've ever seen", "href": "https://www.youtube.com/watch?v=hVimVzgtD6w", "channel": "TED", "description": "Benchmark for engaging explanatory visuals."},
+  {"title": "Data Presentation Tutorial: Communicate Insights to Stakeholders", "href": "https://www.youtube.com/watch?v=So4_o3w0m1s", "channel": "Leila Gharani", "description": "Structure, clarity, and visuals that land with stakeholders."},
+  {"title": "How to Present Data for an Executive Audience", "href": "https://www.youtube.com/watch?v=Tu6ooTQp2gc", "channel": "Hicham Kadiri", "description": "Executive-level framing, outcome-first narratives."},
+  {"title": "How to Present Data to Executives", "href": "https://www.youtube.com/watch?v=7FamnZDLF7g", "channel": "Slide Science", "description": "Craft persuasive data slides for busy execs."},
+  {"title": "Storytelling in PowerPoint: McKinsey’s 3‑Step Framework", "href": "https://www.youtube.com/watch?v=CY1Y367KEko", "channel": "Slide Science", "description": "SCQA-style structure for impactful decks."},
+  {"title": "storytelling with data: Makeovers (playlist)", "href": "https://www.youtube.com/playlist?list=PLwEff2aXpeWu44ZMHjYKffYCSvSjv9Rne", "channel": "storytelling with data (SWD)", "description": "Before/after chart makeovers with rationale."},
+  {"title": "Nancy Duarte TEDx: The Secret Structure of Great Talks", "href": "https://www.youtube.com/watch?v=1nYFpuc2Umk", "channel": "TEDx / Duarte", "description": "Hero’s journey style arcs applied to talks and decks."},
+  {"title": "Transform a Typical Business Slide into a Powerful Data Story", "href": "https://www.youtube.com/watch?v=1y4DES_1DPo", "channel": "storytelling with data", "description": "Tactical slide refinement for clarity and persuasion."},
+  {"title": "Finance Presentation Skills: How to Present Financial Data", "href": "https://www.youtube.com/watch?v=Tczxhi7Aw4g", "channel": "365 Financial Analyst", "description": "Explain financials to execs without losing the room."}
       ]
     },
     {
@@ -32,7 +45,14 @@
         {"title": "How to Design an Executive Dashboard — Tableau Builds", "href": "https://www.youtube.com/watch?v=bZ6oZxc0ho8", "channel": "Tableau Builds", "description": "One‑page exec view; transferable to PBI."},
         {"title": "How to Design a Dashboard in Power BI in 6 Steps", "href": "https://www.youtube.com/watch?v=PSqBgS-efiY", "channel": "How to Power BI", "description": "Applies design rules inside PBI."},
         {"title": "VISUAL DESIGN to Make ANY Power BI Report Look AMAZING", "href": "https://www.youtube.com/watch?v=ly5KOgH3lUw", "channel": "How to Power BI", "description": "Quick design wins: typography, spacing, polish."},
-        {"title": "Report Design Framework (Power BI design session)", "href": "https://www.youtube.com/watch?v=Jx6uvvT2QMI", "channel": "Microsoft / PBI", "description": "Layout system to plan pages before building."}
+  {"title": "Report Design Framework (Power BI design session)", "href": "https://www.youtube.com/watch?v=Jx6uvvT2QMI", "channel": "Microsoft / PBI", "description": "Layout system to plan pages before building."},
+  {"title": "10 Best Power BI Dashboard Examples (2025)", "href": "https://www.youtube.com/watch?v=sZua2B4KKZs", "channel": "Maven Analytics", "description": "Tour of standout executive dashboards and patterns."},
+  {"title": "Dashboard Design Best Practices: Do’s & Don’ts", "href": "https://www.youtube.com/watch?v=ErcqwoXDkrY", "channel": "How to Power BI", "description": "Actionable layout and visual tips for clarity."},
+  {"title": "Create a Star Schema from a Single Table (Power Query)", "href": "https://www.youtube.com/watch?v=2T50krAykjc", "channel": "How to Power BI", "description": "Split a flat table into facts and dimensions in PQ."},
+  {"title": "The Dimensional Dilemma in Power BI", "href": "https://www.youtube.com/watch?v=fUDL097Wj7E", "channel": "SQLBI (Russo/Ferrari)", "description": "Modeling trade-offs and how to choose the right design."},
+  {"title": "10 Tips for Better Dashboards in Power BI", "href": "https://www.youtube.com/watch?v=mYpOSfqgTvY", "channel": "Solutions Abroad", "description": "Practical improvements for real-world reports."},
+  {"title": "Make an AMAZING Dashboard (End‑to‑End Insurance)", "href": "https://www.youtube.com/watch?v=TazNFzgWtgA", "channel": "How to Power BI", "description": "Hands-on build from data to polished dashboard."},
+  {"title": "Create a CEO/Executive Dashboard in Power BI", "href": "https://www.youtube.com/watch?v=iRgzFQAHDRY", "channel": "How to Power BI", "description": "C-level scorecard layout and key metrics."}
       ]
     },
     {
@@ -46,7 +66,11 @@
         {"title": "Color‑Blind Friendly Power BI Reports — Complete Guide", "href": "https://www.youtube.com/watch?v=Gj4wQeYlRn0", "channel": "Community", "description": "WCAG basics and color‑blind‑safe palettes in PBI."},
         {"title": "The How & Why of Power BI Aggregations — Guy in a Cube", "href": "https://www.youtube.com/watch?v=EhGF372t0sU", "channel": "Guy in a Cube", "description": "Scaling large granular data."},
         {"title": "VertiPaq Analyzer crash course — SQLBI", "href": "https://www.youtube.com/watch?v=CrjRrqyFtUk", "channel": "SQLBI", "description": "Diagnose model size & memory; tune performance."},
-        {"title": "Are you HITTING your Power BI aggregations?", "href": "https://www.youtube.com/watch?v=ivWGSnthTDw", "channel": "Guy in a Cube", "description": "Verification + troubleshooting for aggregation usage."}
+  {"title": "Are you HITTING your Power BI aggregations?", "href": "https://www.youtube.com/watch?v=ivWGSnthTDw", "channel": "Guy in a Cube", "description": "Verification + troubleshooting for aggregation usage."},
+  {"title": "Make Your Reports Accessible in Power BI", "href": "https://www.youtube.com/watch?v=3jU2tqt3PRM", "channel": "Chandeep Chhabra", "description": "Accessibility features and checklist in practice."},
+  {"title": "Power BI Performance Analyzer: Crash Course", "href": "https://www.youtube.com/watch?v=cZrX1_mm4sA", "channel": "SQLBI", "description": "Measure visuals and DAX to find bottlenecks."},
+  {"title": "Intro to Power BI Aggregations", "href": "https://www.youtube.com/watch?v=KKWdKD4ztYQ", "channel": "Data Mozart", "description": "Speed up big models with aggregate tables."},
+  {"title": "My Power BI Report is Slow: What Should I Do?", "href": "https://www.youtube.com/watch?v=CauRNWqjOxk", "channel": "SQLBI", "description": "Systematic troubleshooting workflow for slow reports."}
       ]
     },
     {
@@ -59,7 +83,15 @@
         {"title": "Introduction to dbt (dbt Labs)", "href": "https://www.youtube.com/watch?v=M8oi7nSaWps", "channel": "dbt Labs", "description": "Models, tests, sources, docs overview."},
         {"title": "Airflow Tutorial for Beginners — Full Course", "href": "https://www.youtube.com/watch?v=K9AnJ9_ZAXE", "channel": "Tinashe Makura / freeCodeCamp style", "description": "DAG basics for scheduled ETL/ELT."},
         {"title": "Cookiecutter Data Science (talk)", "href": "https://www.youtube.com/watch?v=mWvW-nDZrgI", "channel": "Stylianos Kampakis", "description": "Standardized project scaffolding."},
-        {"title": "EDA using ydata‑profiling (pandas‑profiling)", "href": "https://www.youtube.com/watch?v=HJOXl5zsUnU", "channel": "YData / community", "description": "Rapid, documented EDA starter."}
+  {"title": "EDA using ydata‑profiling (pandas‑profiling)", "href": "https://www.youtube.com/watch?v=HJOXl5zsUnU", "channel": "YData / community", "description": "Rapid, documented EDA starter."},
+  {"title": "Great Expectations: Introduction to Data Testing", "href": "https://www.youtube.com/watch?v=NWNmTsZteJA", "channel": "James Densmore", "description": "Foundations of data validation with GE."},
+  {"title": "How to Perform Great Expectations Checks in BigQuery", "href": "https://www.youtube.com/watch?v=-uoPy7Sngys", "channel": "The Data Guy", "description": "GE checks in cloud warehouses (BigQuery demo)."},
+  {"title": "An Intro to Data Assistants (Great Expectations)", "href": "https://www.youtube.com/watch?v=LxyZyteIvdQ", "channel": "Great Expectations", "description": "Use AI assistants to author expectations faster."},
+  {"title": "dbt Core Tutorial (Install & Setup, 2024)", "href": "https://www.youtube.com/watch?v=MsuTyNHgZoM", "channel": "CK Data Tech", "description": "Install and initialize dbt Core step by step."},
+  {"title": "dbt Core Demo: Creating Models", "href": "https://www.youtube.com/watch?v=VeqodwBLZ4k", "channel": "Seattle Data Guy", "description": "From sources to models and tests in dbt."},
+  {"title": "dbt Incremental Models (Updates/Appends/Merge)", "href": "https://www.youtube.com/watch?v=QDcUpHj_mWw", "channel": "Seattle Data Guy", "description": "Patterns for incremental pipelines in dbt."},
+  {"title": "Apache Airflow Tutorial for Data Engineers", "href": "https://www.youtube.com/watch?v=y5rYZLBZ_Fw", "channel": "Kahan Data Solutions", "description": "Core Airflow concepts for data engineers."},
+  {"title": "Install & Run Apache Airflow with Docker", "href": "https://www.youtube.com/watch?v=THGuipzuch0", "channel": "MyArchitect", "description": "Spin up Airflow locally using Docker."}
       ]
     },
     {
@@ -70,7 +102,12 @@
         {"title": "Power Query for Beginners (2025)", "href": "https://www.youtube.com/watch?v=QXzopqpHlSs", "channel": "TeachExcel / community", "description": "Core ETL patterns in Excel."},
         {"title": "Power Query — Beginner to Pro (30 min)", "href": "https://www.youtube.com/watch?v=MMdcczmULrU", "channel": "Gorilla BI / community", "description": "Quick automation wins."},
         {"title": "Interactive Excel Dashboard in 3 Steps", "href": "https://www.youtube.com/watch?v=1ic8E58Bo2M", "channel": "Leila Gharani / community", "description": "Exec‑style dashboard build."},
-        {"title": "Make an Interactive Excel Dashboard in 4 Steps", "href": "https://www.youtube.com/watch?v=GW6ZjK_9H6A", "channel": "Kevin Stratvert / community", "description": "End‑to‑end example."}
+  {"title": "Make an Interactive Excel Dashboard in 4 Steps", "href": "https://www.youtube.com/watch?v=GW6ZjK_9H6A", "channel": "Kevin Stratvert / community", "description": "End‑to‑end example."},
+  {"title": "Learn Power Query: Complete Course (2025)", "href": "https://www.youtube.com/watch?v=8Q03b_Nb-qg", "channel": "Simon Sez IT", "description": "Comprehensive beginner course for Power Query."},
+  {"title": "Turn Raw Data into an Interactive Excel Dashboard", "href": "https://www.youtube.com/watch?v=9n-_vIAT-GY", "channel": "Excel Campus", "description": "From raw data to a clean, interactive dashboard."},
+  {"title": "Excel PivotTables for Beginners (2025)", "href": "https://www.youtube.com/watch?v=Vj8SNnat2FA", "channel": "Excel University", "description": "PivotTables concepts and hands-on examples."},
+  {"title": "Excel Power Pivot & Data Model (Full Tutorial)", "href": "https://www.youtube.com/watch?v=Gf4HmkR7_FE", "channel": "Kevin Stratvert", "description": "Build models in Excel with Power Pivot."},
+  {"title": "Learn to Automate with Power Query", "href": "https://www.youtube.com/watch?v=x7mzOYEn0XA", "channel": "Leila Gharani", "description": "Automate refresh and tasks with Power Query."}
       ]
     },
     {
@@ -81,7 +118,11 @@
         {"title": "Data Science Best Practices with pandas (PyCon)", "href": "https://www.youtube.com/watch?v=dPwLlJkSHLo", "channel": "Data School (Kevin Markham)", "description": "Efficient, correct idioms."},
         {"title": "Jupyter Notebooks for Teams — Best Practices (ODSC)", "href": "https://www.youtube.com/watch?v=o-ODHqmo410", "channel": "ODSC", "description": "Collaboration & reproducibility."},
         {"title": "Transform a Notebook into a Reproducible Pipeline (DVC)", "href": "https://www.youtube.com/watch?v=sDhpIZQXe-w", "channel": "DVC", "description": "Promotion path from EDA → pipeline."},
-        {"title": "Git & GitHub for Data Scientists (15‑min)", "href": "https://www.youtube.com/watch?v=QBRY5Nm-Q60", "channel": "Ken Jee / community", "description": "Minimal PR/branch workflow to track work."}
+  {"title": "Git & GitHub for Data Scientists (15‑min)", "href": "https://www.youtube.com/watch?v=QBRY5Nm-Q60", "channel": "Ken Jee / community", "description": "Minimal PR/branch workflow to track work."},
+  {"title": "Complete Python Pandas Data Science Tutorial (2025)", "href": "https://www.youtube.com/watch?v=2uvysYbKdjM", "channel": "Tech With Tim", "description": "End-to-end pandas tutorial for analysis."},
+  {"title": "Optimizing Jupyter Notebooks for Collaboration", "href": "https://www.youtube.com/watch?v=vBVGpJw4FNE", "channel": "Formal Algorithms", "description": "Make notebooks reproducible and team-friendly."},
+  {"title": "Version Control for Data Science (No‑code DVC explainer)", "href": "https://www.youtube.com/watch?v=UbL7VUpv1Bs", "channel": "Iterative", "description": "Why and how to version data/models with DVC."},
+  {"title": "Versioning Data with DVC (Hands‑On Tutorial)", "href": "https://www.youtube.com/watch?v=kLKBcPonMYw", "channel": "Iterative", "description": "Practical DVC workflow for datasets and models."}
       ]
     },
     {
@@ -91,7 +132,10 @@
         {"title": "ROC and AUC, Clearly Explained — StatQuest", "href": "https://www.youtube.com/watch?v=4jRBRDbJemM", "channel": "StatQuest", "description": "Threshold‑free performance summary."},
         {"title": "Sensitivity & Specificity — StatQuest", "href": "https://www.youtube.com/watch?v=vP06aMoz4v8", "channel": "StatQuest", "description": "Complements precision/recall thinking."},
         {"title": "Precision, Recall & F1 — intuitive walkthrough", "href": "https://www.youtube.com/watch?v=8d3JbbSj-I8", "channel": "Krish Naik", "description": "Practical for imbalanced outcomes."},
-        {"title": "Machine Learning Fundamentals: Confusion Matrix — StatQuest", "href": "https://www.youtube.com/watch?v=Kdsp6soqA7o", "channel": "StatQuest", "description": "Base for all classification metrics."}
+  {"title": "Machine Learning Fundamentals: Confusion Matrix — StatQuest", "href": "https://www.youtube.com/watch?v=Kdsp6soqA7o", "channel": "StatQuest", "description": "Base for all classification metrics."},
+  {"title": "Cross‑Validation, Clearly Explained", "href": "https://www.youtube.com/watch?v=fSytzGwwBVw", "channel": "StatQuest", "description": "Why and how to validate models using CV."},
+  {"title": "Create a Baseline Regression Model & Metrics", "href": "https://www.youtube.com/watch?v=i8V2yAI-yN8", "channel": "CodeBasics", "description": "Start with simple baselines and measure properly."},
+  {"title": "Build a Baseline Classification Model", "href": "https://www.youtube.com/watch?v=Jf-6asHKLQw", "channel": "TechTFQ", "description": "Establish a baseline classifier and metrics."}
       ]
     },
     {
@@ -111,7 +155,8 @@
         {"title": "Time Series Forecasting in Power BI (hands‑on)", "href": "https://www.youtube.com/watch?v=igQN4bZiuIg", "channel": "How to Power BI / community", "description": "DAX + decomposition patterns."},
         {"title": "Forecasting in Power BI (built‑in)", "href": "https://www.youtube.com/watch?v=CvJp02Bpn80", "channel": "Enterprise DNA / community", "description": "Quick option for simple horizons."},
         {"title": "Prophet in Python (quickstart / 20‑min)", "href": "https://www.youtube.com/watch?v=KvLG1uTC-KU", "channel": "Luke Barousse / community", "description": "Fast baseline forecasting."},
-        {"title": "What is Time Series Decomposition", "href": "https://www.youtube.com/watch?v=0ar9extHObg", "channel": "StatQuest / community", "description": "Trend/seasonality/residual intuition."}
+  {"title": "What is Time Series Decomposition", "href": "https://www.youtube.com/watch?v=0ar9extHObg", "channel": "StatQuest / community", "description": "Trend/seasonality/residual intuition."},
+  {"title": "How to Build ARIMA Models in Python", "href": "https://www.youtube.com/watch?v=-aCF0_wfVwY", "channel": "Egor Howell", "description": "ARIMA modeling workflow in Python."}
       ]
     },
     {
@@ -123,7 +168,9 @@
         {"title": "Crime Analysis in Power BI (workshop / DC data)", "href": "https://www.youtube.com/watch?v=oFijf0xgkyk", "channel": "CivicData / community", "description": "End‑to‑end civic example."},
         {"title": "Power BI Showcase: Local Government Showcase", "href": "https://www.youtube.com/watch?v=KPh9Xjou2KI", "channel": "Microsoft / community", "description": "Municipal dashboard templates and KPIs."},
         {"title": "Build a Crime Dashboard in Power BI (Manchester PD example)", "href": "https://www.youtube.com/watch?v=sVXjAIa7YBs", "channel": "Community tutorial", "description": "Filters, trends, and drill in a municipal dataset."},
-        {"title": "Data Visualization for Proactive Government Decision‑making", "href": "https://www.youtube.com/watch?v=afnoUt5noAw", "channel": "Workshop / community", "description": "Framing dashboards for policy/action."}
+  {"title": "Data Visualization for Proactive Government Decision‑making", "href": "https://www.youtube.com/watch?v=afnoUt5noAw", "channel": "Workshop / community", "description": "Framing dashboards for policy/action."},
+  {"title": "Driving Data into Local Government with Power BI", "href": "https://www.youtube.com/watch?v=S8cVK7GMVKQ", "channel": "DataTaleAU", "description": "How councils adopt and scale Power BI."},
+  {"title": "Environmental Data Storytelling in Power BI", "href": "https://www.youtube.com/watch?v=vxcw9upCA5k", "channel": "Alice Drummond", "description": "Environmental dashboards and communication tips."}
       ]
     },
     {
@@ -134,7 +181,10 @@
         {"title": "Government Analysis Function (UK) — channel", "href": "https://www.youtube.com/channel/UCVY5YwwgpprO_2KEYz-cVrw/videos", "channel": "UK Government Analysis Function", "description": "Standards & webinars incl. data quality."},
         {"title": "Let’s talk about data quality! (AF webinar)", "href": "https://www.youtube.com/watch?v=uoa6Q2JWGY4", "channel": "UK Government Analysis Function", "description": "Quality framework for official analysis."},
         {"title": "Guidelines for Responsible Use of AI in the Public Service", "href": "https://www.youtube.com/watch?v=447i7ETRZCY", "channel": "Gov / policy", "description": "Policy grounding for AI features."},
-        {"title": "Tools for the Equitable Use of AI in the Public Sector (AAAS)", "href": "https://www.youtube.com/watch?v=yz8J9-Ol8ak", "channel": "AAAS", "description": "Fairness & governance in practice."}
+  {"title": "Tools for the Equitable Use of AI in the Public Sector (AAAS)", "href": "https://www.youtube.com/watch?v=yz8J9-Ol8ak", "channel": "AAAS", "description": "Fairness & governance in practice."},
+  {"title": "Lessons Learned from De‑identifying 700M Patient Notes", "href": "https://www.youtube.com/watch?v=F3JjhFYV0-I", "channel": "Johns Hopkins HLT Lab", "description": "Real-world de‑identification at massive scale."},
+  {"title": "Compelling Insights Through Data Visualisations (UK Analysis Function)", "href": "https://www.youtube.com/watch?v=QWxHhB6CUak", "channel": "ONS / UK AF", "description": "Gov-standard viz guidance and examples."},
+  {"title": "Responsible Data Science, Privacy & Algorithmic Fairness", "href": "https://www.youtube.com/watch?v=HCDbm0e5sVk", "channel": "University of Waterloo", "description": "Foundations of responsible data science in practice."}
       ]
     }
   ]
