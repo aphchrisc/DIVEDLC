@@ -124,6 +124,10 @@ a:hover { text-decoration: underline; }
 .notes[hidden] { display: none !important; }
 .notes textarea { width: 100%; min-height: 80px; padding: 8px; border-radius: 8px; border: 1px solid #d1d5db; font-family: inherit; font-size: 0.9rem; }
 
+.playlist-wrap { margin-top: 8px; }
+.playlist-wrap ol { margin: 4px 0 0 20px; padding: 0; }
+.playlist-wrap .start-playlist { margin-left: 8px; }
+
 /* Print */
 @media print {
   .hero, .toc, .toolbar, .progress-wrap { display: none !important; }
