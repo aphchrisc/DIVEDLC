@@ -163,7 +163,13 @@
         const res = await fetch(api);
         if (!res.ok) throw new Error('HTTP '+res.status);
         const data = await res.json();
-        data.items.forEach(v => { videos.push({ title: v.snippet.title, id: v.snippet.resourceId.videoId }); });
+        data.items.forEach(v => {
+          const vid = v?.snippet?.resourceId?.videoId;
+          const title = v?.snippet?.title;
+          if (vid && title) {
+            videos.push({ title, id: vid });
+          }
+        });
         item.playlistCount = data.pageInfo?.totalResults || videos.length;
         token = data.nextPageToken;
       } while(token);
