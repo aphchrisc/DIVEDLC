@@ -16,7 +16,7 @@
   {"@context":"https://schema.org","@type":"WebPage","name":"DIVE Data Learning Cohort — Enhanced Index","description":"Searchable, filterable video index with progress tracking."}
   </script>
 </head>
-<body>
+<body data-gh-owner="YOUR_GITHUB_USERNAME" data-gh-repo="DIVEDLC">
   <a class="sr-only" href="#content">Skip to content</a>
   <div class="progress-wrap" aria-hidden="true"><div id="progress-bar" class="progress-bar"></div></div>
   <header class="hero" role="banner">
@@ -106,6 +106,33 @@
   <div id="section-L" class="sr-only" aria-hidden="true"></div>
       <div id="loading" class="placeholder">Loading videos…</div>
     </section>
+
+    <section id="suggest" aria-labelledby="suggest-title">
+      <div class="container">
+        <h2 id="suggest-title">Suggest a video or category</h2>
+        <form id="suggest-form">
+          <label for="suggest-url">YouTube link</label>
+          <input id="suggest-url" type="url" required />
+
+          <label for="suggest-section">Section</label>
+          <input id="suggest-section" type="text" placeholder="e.g., A or new category" required />
+
+          <fieldset>
+            <legend>Type</legend>
+            <label><input type="radio" name="suggest-type" value="video" checked /> Single video</label>
+            <label><input type="radio" name="suggest-type" value="playlist" /> Playlist</label>
+          </fieldset>
+
+          <div id="captcha-wrapper">
+            <label id="captcha-label" for="captcha-answer"></label>
+            <input id="captcha-answer" type="text" inputmode="numeric" required />
+          </div>
+
+          <button type="submit">Submit</button>
+        </form>
+        <p id="suggest-status" role="status" aria-live="polite"></p>
+      </div>
+      </section>
   </main>
 
   <noscript>
@@ -122,6 +149,7 @@ $VIDEOS
 $RES
   </script>
 
-  <script src="assets/js/app.js" defer></script>
-</body>
+    <script src="assets/js/app.js" defer></script>
+    <script src="assets/js/suggest.js" defer></script>
+  </body>
 </html>
