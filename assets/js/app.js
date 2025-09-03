@@ -1,6 +1,6 @@
 (() => {
   // Cache-busting version for data fetches; bump when data/resources change
-  const VERSION = '2025-09-03';
+  const VERSION = '2025-09-03.1';
   // Feature flags
   const ENABLE_STUDY_PLAN = false;
   const SELECTORS = {

@@ -107,7 +107,9 @@
   {"title": "Turn Raw Data into an Interactive Excel Dashboard", "href": "https://www.youtube.com/watch?v=9n-_vIAT-GY", "channel": "Excel Campus", "description": "From raw data to a clean, interactive dashboard."},
   {"title": "Excel PivotTables for Beginners (2025)", "href": "https://www.youtube.com/watch?v=Vj8SNnat2FA", "channel": "Excel University", "description": "PivotTables concepts and hands-on examples."},
   {"title": "Excel Power Pivot & Data Model (Full Tutorial)", "href": "https://www.youtube.com/watch?v=Gf4HmkR7_FE", "channel": "Kevin Stratvert", "description": "Build models in Excel with Power Pivot."},
-  {"title": "Learn to Automate with Power Query", "href": "https://www.youtube.com/watch?v=x7mzOYEn0XA", "channel": "Leila Gharani", "description": "Automate refresh and tasks with Power Query."}
+  {"title": "Learn to Automate with Power Query", "href": "https://www.youtube.com/watch?v=x7mzOYEn0XA", "channel": "Leila Gharani", "description": "Automate refresh and tasks with Power Query."},
+  {"title": "Master Data Cleaning Essentials on Excel in Just 10 Minutes", "href": "https://www.youtube.com/watch?v=jxq4-KSB_OA", "channel": "Kenji Explains", "description": "Excel data cleaning essentials in 10 minutes."},
+  {"title": "Cleaning Data in Excel: Microsoft Excel Crash Course", "href": "https://www.youtube.com/watch?v=50Wd-Blu8DU", "channel": "Simon Sez IT (Deborah Ashby)", "description": "Crash course on cleaning data in Excel."}
       ]
     },
     {
