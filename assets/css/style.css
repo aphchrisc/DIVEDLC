@@ -147,5 +147,36 @@ a:hover { text-decoration: underline; }
   /* Toolbar is in hero on mobile as well */
   .main > .toc, .main > .toolbar, .main > #content { grid-column: 1; }
   .toc button.toc-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 8px 10px; margin: 4px 8px 8px; border-radius: 8px; border: 1px solid #d1d5db; background: #fff; }
-  .toolbar .row { grid-template-columns: 1fr 1fr; gap: 10px; }
+  /* Header actions wrap on smaller screens */
+  .header-actions { flex-wrap: wrap; gap: 6px; justify-content: flex-start; }
+  .header-actions button { flex: 1 1 auto; }
+  /* Make toolbar controls stack neatly: search full width; filters side by side; buttons side by side */
+  .hero .toolbar .row {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "search search"
+      "section channel"
+      "watchlist watched";
+    gap: 10px;
+  }
+  #search { grid-area: search; }
+  #filter-section { grid-area: section; }
+  #filter-channel { grid-area: channel; }
+  #filter-watchlist { grid-area: watchlist; }
+  #filter-watched { grid-area: watched; }
+}
+
+/* Very small phones: one control per row */
+@media (max-width: 480px) {
+  .hero .toolbar .row {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "search"
+      "section"
+      "channel"
+      "watchlist"
+      "watched";
+  }
+  .header-actions { justify-content: stretch; }
+  .header-actions button { width: 100%; }
 }

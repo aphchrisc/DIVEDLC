@@ -47,29 +47,39 @@
     setCookie('dive_watchlist', wl, 180);
     setCookie('dive_watched', wd, 180);
     // Persist study plan settings
-    try {
+  try {
       const study = JSON.stringify(state.study);
       localStorage.setItem('dive:study', study);
       setCookie('dive_study', study, 180);
-    } catch {}
+  } catch (e) { /* noop */ }
   }
   (function loadCookies(){
-    try { const wl = getCookie('dive_watchlist'); if (wl) JSON.parse(wl).forEach(id => state.watchlist.add(id)); } catch{}
-    try { const wd = getCookie('dive_watched'); if (wd) JSON.parse(wd).forEach(id => state.watched.add(id)); } catch{}
+    try {
+      const wl = getCookie('dive_watchlist');
+      if (wl) {
+        JSON.parse(wl).forEach(id => state.watchlist.add(id));
+      }
+    } catch (e) { /* noop */ }
+    try {
+      const wd = getCookie('dive_watched');
+      if (wd) {
+        JSON.parse(wd).forEach(id => state.watched.add(id));
+      }
+    } catch (e) { /* noop */ }
     // Restore study plan
     try {
       const st = getCookie('dive_study') || localStorage.getItem('dive:study');
       if (st) {
         const s = JSON.parse(st);
         if (s && typeof s === 'object') {
-          if (typeof s.avg === 'number') state.study.avg = s.avg;
-          if (typeof s.budget === 'number') state.study.budget = s.budget;
-          if (typeof s.watchlistOnly === 'boolean') state.study.watchlistOnly = s.watchlistOnly;
+          if (typeof s.avg === 'number') { state.study.avg = s.avg; }
+          if (typeof s.budget === 'number') { state.study.budget = s.budget; }
+          if (typeof s.watchlistOnly === 'boolean') { state.study.watchlistOnly = s.watchlistOnly; }
         }
       }
-    } catch {}
+  } catch (e) { /* noop */ }
     // Restore notes from cookie chunks into localStorage
-    try { loadNotesFromCookies(); } catch {}
+  try { loadNotesFromCookies(); } catch (e) { /* noop */ }
   })();
 
   // Chunked cookie persistence for notes
@@ -98,21 +108,24 @@
         setCookie('dive_notes_'+i, slice, 180);
       }
       setCookie('dive_notes_parts', String(parts), 180);
-    } catch {}
+  } catch (e) { /* noop */ }
   }
   function loadNotesFromCookies() {
     const parts = parseInt(getCookie('dive_notes_parts') || '0', 10);
-    if (!parts || parts < 0 || parts > 50) return;
+    if (!parts || parts < 0 || parts > 50) { return; }
     let acc = '';
-    for (let i=0;i<parts;i++) { const p = getCookie('dive_notes_'+i); if (p) acc += p; }
-    if (!acc) return;
-    try {
+    for (let i=0;i<parts;i++) {
+      const p = getCookie('dive_notes_'+i);
+      if (p) { acc += p; }
+    }
+    if (!acc) { return; }
+  try {
       const obj = JSON.parse(acc);
       Object.keys(obj).forEach(id => {
         const val = String(obj[id] || '');
-        if (val) localStorage.setItem('dive:notes:'+id, val);
+        if (val) { localStorage.setItem('dive:notes:'+id, val); }
       });
-    } catch {}
+  } catch (e) { /* noop */ }
   }
 
   function applyTheme() {
@@ -133,8 +146,8 @@
   function youTubeId(url) {
     try {
       const u = new URL(url, location.href);
-      if (u.hostname.includes('youtu.be')) return u.pathname.slice(1);
-      if (u.searchParams.get('v')) return u.searchParams.get('v');
+  if (u.hostname.includes('youtu.be')) { return u.pathname.slice(1); }
+  if (u.searchParams.get('v')) { return u.searchParams.get('v'); }
       return null;
     } catch { return null; }
   }
@@ -154,14 +167,14 @@
   }
 
   async function loadPlaylistVideos(item) {
-    if (item.playlistVideos || !item.playlistId) return;
+  if (item.playlistVideos || !item.playlistId) { return; }
     if (!YT_API_KEY) { item.playlistVideos = []; item.playlistCount = 0; return; }
     let videos = [], token = '';
     try {
       do {
         const api = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${item.playlistId}&key=${YT_API_KEY}` + (token ? `&pageToken=${token}` : '');
-        const res = await fetch(api);
-        if (!res.ok) throw new Error('HTTP '+res.status);
+    const res = await fetch(api);
+    if (!res.ok) { throw new Error('HTTP '+res.status); }
         const data = await res.json();
         data.items.forEach(v => {
           const vid = v?.snippet?.resourceId?.videoId;
@@ -229,15 +242,15 @@
 
   function matchesFilters(item) {
     const f = state.filters;
-    if (f.section && item.sectionCode !== f.section) return false;
-    if (f.channel && item.channel !== f.channel) return false;
-    if (f.type && item.type !== f.type) return false;
-    if (f.watchlistOnly && !state.watchlist.has(item.id)) return false;
-    if (f.watchedOnly && !state.watched.has(item.id)) return false;
+    if (f.section && item.sectionCode !== f.section) { return false; }
+    if (f.channel && item.channel !== f.channel) { return false; }
+    if (f.type && item.type !== f.type) { return false; }
+    if (f.watchlistOnly && !state.watchlist.has(item.id)) { return false; }
+    if (f.watchedOnly && !state.watched.has(item.id)) { return false; }
     if (f.q) {
       const q = f.q.toLowerCase();
       const hay = (item.title + ' ' + (item.channel||'') + ' ' + (item.description||'')).toLowerCase();
-      if (!hay.includes(q)) return false;
+      if (!hay.includes(q)) { return false; }
     }
     return true;
   }
@@ -246,7 +259,9 @@
     const total = totalOverride ?? state.items.length;
     const watched = watchedOverride ?? Array.from(state.watched).length;
     const pct = total ? Math.round((watched / total) * 100) : 0;
-    if (SELECTORS.progressBar) SELECTORS.progressBar.style.width = pct + '%';
+    if (SELECTORS.progressBar) {
+      SELECTORS.progressBar.style.width = pct + '%';
+    }
   }
 
   function ensureDeepLink() {
@@ -265,17 +280,21 @@
     }
   }
 
-  function updateUrlFromFilters(replace=true) {
+  function updateUrlFromFilters(replace = true) {
     const p = new URLSearchParams();
     const f = state.filters;
-    if (f.q) p.set('q', f.q);
-    if (f.section) p.set('s', f.section);
-    if (f.channel) p.set('c', f.channel);
-    if (f.type) p.set('t', f.type);
-    if (f.watchlistOnly) p.set('wl', '1');
-    if (f.watchedOnly) p.set('wd', '1');
+  if (f.q) { p.set('q', f.q); }
+  if (f.section) { p.set('s', f.section); }
+  if (f.channel) { p.set('c', f.channel); }
+  if (f.type) { p.set('t', f.type); }
+  if (f.watchlistOnly) { p.set('wl', '1'); }
+  if (f.watchedOnly) { p.set('wd', '1'); }
     const url = location.pathname + (p.toString() ? '?' + p.toString() : '') + location.hash;
-    (replace ? history.replaceState : history.pushState).call(history, null, '', url);
+    if (replace) {
+      history.replaceState(null, '', url);
+    } else {
+      history.pushState(null, '', url);
+    }
   }
   function applyFiltersFromUrl() {
     const p = new URLSearchParams(location.search);
@@ -285,20 +304,37 @@
     state.filters.type = p.get('t') || '';
     state.filters.watchlistOnly = p.get('wl') === '1';
     state.filters.watchedOnly = p.get('wd') === '1';
-    if (SELECTORS.search) SELECTORS.search.value = state.filters.q;
-    if (SELECTORS.filterSection) SELECTORS.filterSection.value = state.filters.section;
-    if (SELECTORS.filterChannel) SELECTORS.filterChannel.value = state.filters.channel;
-    if (SELECTORS.filterType) SELECTORS.filterType.value = state.filters.type;
-    if (SELECTORS.filterWatchlist) SELECTORS.filterWatchlist.setAttribute('aria-pressed', String(state.filters.watchlistOnly));
-    if (SELECTORS.filterWatched) SELECTORS.filterWatched.setAttribute('aria-pressed', String(state.filters.watchedOnly));
+    if (SELECTORS.search) {
+      SELECTORS.search.value = state.filters.q;
+    }
+    if (SELECTORS.filterSection) {
+      SELECTORS.filterSection.value = state.filters.section;
+    }
+    if (SELECTORS.filterChannel) {
+      SELECTORS.filterChannel.value = state.filters.channel;
+    }
+    if (SELECTORS.filterType) {
+      SELECTORS.filterType.value = state.filters.type;
+    }
+    if (SELECTORS.filterWatchlist) {
+      SELECTORS.filterWatchlist.setAttribute('aria-pressed', String(state.filters.watchlistOnly));
+    }
+    if (SELECTORS.filterWatched) {
+      SELECTORS.filterWatched.setAttribute('aria-pressed', String(state.filters.watchedOnly));
+    }
   }
 
   function updateTocChips(perSection) {
-    const toc = SELECTORS.tocEl; if (!toc) return;
+    const toc = SELECTORS.tocEl;
+    if (!toc) {
+      return;
+    }
     const links = Array.from(toc.querySelectorAll('a[href^="#section-"]'));
     links.forEach(a => {
   const m = a.getAttribute('href').match(/^#section-([A-L])$/);
-      if (!m) return;
+      if (!m) {
+        return;
+      }
       const code = m[1];
       const data = perSection[code] || { total: 0, watched: 0 };
       let chip = a.querySelector('.chip-mini');
@@ -308,7 +344,9 @@
   }
 
   function render() {
-    if (!state.items.length) return;
+    if (!state.items.length) {
+      return;
+    }
     SELECTORS.content.innerHTML = '';
     const sections = buildSections(state.items);
     let total = 0, watched = 0;
@@ -360,8 +398,14 @@
 
       const grid = document.createElement('div'); grid.className = 'grid';
       section.items.forEach(item => {
-        total += 1; const isWatched = state.watched.has(item.id); if (isWatched) watched += 1;
-        if (!matchesFilters(item)) return;
+        total += 1;
+        const isWatched = state.watched.has(item.id);
+        if (isWatched) {
+          watched += 1;
+        }
+        if (!matchesFilters(item)) {
+          return;
+        }
         const card = document.createElement('article'); card.className = 'card'; card.setAttribute('data-id', item.id); card.setAttribute('data-section', item.sectionCode); card.setAttribute('data-channel', item.channel);
         const thumbUrl = youTubeThumb(item.href);
         if (thumbUrl) {
@@ -373,7 +417,13 @@
           }
         }
   const t = document.createElement('h4'); t.className = 'title'; const a = document.createElement('a'); a.href=item.href||'#'; a.target='_blank'; a.rel='noopener noreferrer'; a.textContent=item.title; a.id=item.id;
-  if (!item.href || item.href === '#') { a.classList.add('disabled'); a.removeAttribute('target'); a.removeAttribute('rel'); a.href = 'javascript:void(0)'; }
+  if (!item.href || item.href === '#') {
+    a.classList.add('disabled');
+    a.removeAttribute('target');
+    a.removeAttribute('rel');
+    a.href = '#';
+    a.addEventListener('click', (e) => e.preventDefault());
+  }
   t.appendChild(a);
   const metaEl = document.createElement('div'); metaEl.className='meta'; const chip = document.createElement('span'); chip.className='chip'; chip.textContent=item.channel||'Channel'; metaEl.appendChild(chip);
   const desc = document.createElement('div'); desc.className='desc'; desc.textContent=item.description||'';
@@ -388,13 +438,47 @@
         }
         const actions = document.createElement('div'); actions.className='actions';
         const btnSave = document.createElement('button'); btnSave.className='btn'; btnSave.type='button'; btnSave.setAttribute('aria-pressed', state.watchlist.has(item.id)?'true':'false'); btnSave.textContent = state.watchlist.has(item.id)?'Saved':'Add to Watchlist';
-        btnSave.addEventListener('click', () => { const pressed = btnSave.getAttribute('aria-pressed')==='true'; if (pressed) state.watchlist.delete(item.id); else state.watchlist.add(item.id); btnSave.setAttribute('aria-pressed', String(!pressed)); btnSave.textContent = !pressed ? 'Saved' : 'Add to Watchlist'; persist(); });
+        btnSave.addEventListener('click', () => {
+          const pressed = btnSave.getAttribute('aria-pressed') === 'true';
+          if (pressed) {
+            state.watchlist.delete(item.id);
+          } else {
+            state.watchlist.add(item.id);
+          }
+          btnSave.setAttribute('aria-pressed', String(!pressed));
+          btnSave.textContent = pressed ? 'Add to Watchlist' : 'Saved';
+          persist();
+        });
         const btnWatched = document.createElement('button'); btnWatched.className='btn'; btnWatched.type='button'; btnWatched.setAttribute('aria-pressed', isWatched?'true':'false'); btnWatched.textContent = isWatched ? 'Watched' : 'Mark Watched';
         btnWatched.addEventListener('click', () => {
-          const pressed = btnWatched.getAttribute('aria-pressed')==='true'; if (pressed) state.watched.delete(item.id); else state.watched.add(item.id);
-          btnWatched.setAttribute('aria-pressed', String(!pressed)); btnWatched.textContent = !pressed ? 'Watched' : 'Mark Watched'; persist(); updateProgress();
-          const s = card.closest('.section'); if (s) { const code = item.sectionCode; const itemsInSection = state.items.filter(it => it.sectionCode === code); const watchedInSection = itemsInSection.filter(it => state.watched.has(it.id)).length; const f = s.querySelector('.progress-fill'); if (f) f.style.width = (itemsInSection.length? Math.round((watchedInSection/itemsInSection.length)*100):0) + '%'; }
-          const tocLink = document.querySelector('#toc a[href="#section-'+item.sectionCode+'"]'); if (tocLink) { let chip = tocLink.querySelector('.chip-mini'); if (!chip) { chip = document.createElement('span'); chip.className = 'chip-mini'; tocLink.appendChild(chip); } const itemsInSection = state.items.filter(it => it.sectionCode === item.sectionCode); const watchedInSection = itemsInSection.filter(it => state.watched.has(it.id)).length; chip.textContent = `${watchedInSection}/${itemsInSection.length}`; }
+          const pressed = btnWatched.getAttribute('aria-pressed') === 'true';
+          if (pressed) {
+            state.watched.delete(item.id);
+          } else {
+            state.watched.add(item.id);
+          }
+          btnWatched.setAttribute('aria-pressed', String(!pressed));
+          btnWatched.textContent = pressed ? 'Mark Watched' : 'Watched';
+          persist();
+          updateProgress();
+          const s = card.closest('.section');
+          if (s) {
+            const code = item.sectionCode;
+            const itemsInSection = state.items.filter(it => it.sectionCode === code);
+            const watchedInSection = itemsInSection.filter(it => state.watched.has(it.id)).length;
+            const f = s.querySelector('.progress-fill');
+            if (f) {
+              f.style.width = (itemsInSection.length ? Math.round((watchedInSection / itemsInSection.length) * 100) : 0) + '%';
+            }
+          }
+          const tocLink = document.querySelector('#toc a[href="#section-' + item.sectionCode + '"]');
+          if (tocLink) {
+            let chip = tocLink.querySelector('.chip-mini');
+            if (!chip) { chip = document.createElement('span'); chip.className = 'chip-mini'; tocLink.appendChild(chip); }
+            const itemsInSection2 = state.items.filter(it => it.sectionCode === item.sectionCode);
+            const watchedInSection2 = itemsInSection2.filter(it => state.watched.has(it.id)).length;
+            chip.textContent = `${watchedInSection2}/${itemsInSection2.length}`;
+          }
         });
         const btnNotes = document.createElement('button'); btnNotes.className='btn'; btnNotes.type='button'; btnNotes.textContent='Notes'; btnNotes.setAttribute('aria-expanded','false');
         const notesWrap = document.createElement('div'); notesWrap.className='notes'; notesWrap.hidden = true; const ta = document.createElement('textarea'); ta.placeholder='Your notes (saved locally)…'; ta.value = (localStorage.getItem('dive:notes:'+item.id)||'');
@@ -408,7 +492,15 @@
         notesWrap.appendChild(ta);
         btnNotes.addEventListener('click', () => { const expanded = btnNotes.getAttribute('aria-expanded')==='true'; btnNotes.setAttribute('aria-expanded', String(!expanded)); notesWrap.hidden = expanded; });
         actions.appendChild(btnSave); actions.appendChild(btnWatched); actions.appendChild(btnNotes);
-        card.appendChild(t); card.appendChild(metaEl); card.appendChild(desc); if (playlistWrap) card.appendChild(playlistWrap); card.appendChild(actions); card.appendChild(notesWrap); grid.appendChild(card);
+        card.appendChild(t);
+        card.appendChild(metaEl);
+        card.appendChild(desc);
+        if (playlistWrap) {
+          card.appendChild(playlistWrap);
+        }
+        card.appendChild(actions);
+        card.appendChild(notesWrap);
+        grid.appendChild(card);
       });
       secEl.appendChild(grid); SELECTORS.content.appendChild(secEl);
     });
@@ -416,7 +508,10 @@
   }
 
   function populateChannelFilter() {
-    const sel = SELECTORS.filterChannel; if (!sel) return;
+    const sel = SELECTORS.filterChannel;
+    if (!sel) {
+      return;
+    }
     const channels = Array.from(state.channels).sort((a,b)=>a.localeCompare(b));
     channels.forEach(ch => { const opt = document.createElement('option'); opt.value = ch; opt.textContent = ch; sel.appendChild(opt); });
   }
@@ -441,7 +536,8 @@
 
   function setupStudyPlan() {
     // Inject a simple study panel below the toolbar
-  const toolbar = document.querySelector('.toolbar'); if (!toolbar) return;
+  const toolbar = document.querySelector('.toolbar');
+  if (!toolbar) { return; }
     const panel = document.createElement('div'); panel.className = 'study'; panel.setAttribute('role','region'); panel.setAttribute('aria-label','Study plan');
     panel.innerHTML = `
       <div class="row">
@@ -462,7 +558,7 @@
     const budgetEl = panel.querySelector('#study-budget');
     const wlOnlyEl = panel.querySelector('#study-watchlist-only');
     const resultEl = panel.querySelector('#study-result');
-    panel.addEventListener('click', (e) => {
+  panel.addEventListener('click', (e) => {
       const t = e.target;
       if (t.matches('[data-budget]')) { budgetEl.value = t.getAttribute('data-budget'); update(); }
       if (t.id === 'study-copy') { copyPlan(); }
@@ -491,7 +587,7 @@
       const fit = Math.max(0, Math.floor(budget / avg));
       const chosen = list.slice(0, fit);
       const md = chosen.map(it => `- [${it.title}](${it.href})`).join('\n') || '*No items in plan*';
-      navigator.clipboard?.writeText(md).then(()=>{ resultEl.textContent += ' (Plan copied)'; });
+  navigator.clipboard?.writeText(md).then(()=>{ resultEl.textContent += ' (Plan copied)'; });
     }
   }
 
@@ -508,8 +604,8 @@
     try {
       const videosUrl = new URL('assets/data/videos.json', document.baseURI);
       videosUrl.searchParams.set('v', VERSION);
-      const res = await fetch(videosUrl.toString());
-      if (!res.ok) throw new Error('HTTP '+res.status);
+  const res = await fetch(videosUrl.toString());
+  if (!res.ok) { throw new Error('HTTP '+res.status); }
       data = await res.json();
     } catch (e) {
       const inline = document.getElementById('videos-inline');
@@ -530,7 +626,7 @@
       });
     });
     // Load optional resources per section
-    try {
+  try {
       const resourcesUrl = new URL('assets/data/resources.json', document.baseURI);
       resourcesUrl.searchParams.set('v', VERSION);
       const res2 = await fetch(resourcesUrl.toString());
@@ -542,7 +638,7 @@
         try {
           const txt = (inlineR.textContent || '').trim();
           state.resources = (!txt || txt === '$RES' || !txt.startsWith('{')) ? {} : JSON.parse(txt);
-        } catch { state.resources = {}; }
+    } catch (err) { state.resources = {}; }
       } else { state.resources = {}; }
     }
   }
@@ -576,12 +672,12 @@
       populateChannelFilter(); applyFiltersFromUrl(); render(); updateUrlFromFilters(true); updateProgress(); populateTOCAnchors();
       // Mirror any existing notes from localStorage to cookies after first render
       saveNotesToCookies();
-    } catch (e) {
+  } catch (e) {
       console.error('Failed to load data', e);
   if (SELECTORS.loading) { SELECTORS.loading.textContent = 'Failed to load videos.'; }
     }
     // Before unload, persist state and notes mirror
-    window.addEventListener('beforeunload', () => { try { persist(); saveNotesToCookies(); } catch {} });
+  window.addEventListener('beforeunload', () => { try { persist(); saveNotesToCookies(); } catch (e) { /* noop */ } });
   }
 
   bootstrap();
