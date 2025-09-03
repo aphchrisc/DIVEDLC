@@ -13,6 +13,14 @@ Structure
 - assets/data/resources.json — optional resources per section
 - assets/resources/*.md — internal resource docs
 
+Suggestions
+-----------
+- A form at the bottom of `index.html` lets users suggest new videos or categories.
+- Submissions require solving a simple captcha to reduce spam.
+- Suggestions are stored in `assets/data/suggestions.json` with an ISO timestamp.
+- To enable saving suggestions, maintainers must set `data-gh-owner` and `data-gh-repo` on the `<body>` tag and store a GitHub
+  token in `localStorage` under `dive:gh_token`.
+
 Local Development
 Open `index.html` directly or serve with a static server (recommended) to ensure fetch paths resolve.
 

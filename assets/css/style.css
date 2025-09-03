@@ -124,6 +124,13 @@ a:hover { text-decoration: underline; }
 .notes[hidden] { display: none !important; }
 .notes textarea { width: 100%; min-height: 80px; padding: 8px; border-radius: 8px; border: 1px solid #d1d5db; font-family: inherit; font-size: 0.9rem; }
 
+/* Suggest form */
+#suggest { margin: 24px 0; }
+#suggest form { display: grid; gap: 8px; max-width: 480px; }
+#suggest fieldset { border: 1px solid #d1d5db; padding: 8px 12px; border-radius: 8px; }
+#suggest button { padding: 8px 12px; border-radius: 8px; border: 1px solid #d1d5db; background: #f8fafc; cursor: pointer; }
+#suggest button:hover { background: #eef2ff; }
+
 /* Print */
 @media print {
   .hero, .toc, .toolbar, .progress-wrap { display: none !important; }
