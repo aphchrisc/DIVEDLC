@@ -9,6 +9,7 @@
     search: document.getElementById('search'),
     filterSection: document.getElementById('filter-section'),
     filterChannel: document.getElementById('filter-channel'),
+    filterType: document.getElementById('filter-type'),
     filterWatchlist: document.getElementById('filter-watchlist'),
     filterWatched: document.getElementById('filter-watched'),
     progressBar: document.getElementById('progress-bar'),
@@ -16,10 +17,12 @@
     tocEl: document.getElementById('toc'),
   };
 
+  const YT_API_KEY = window.YT_API_KEY || '';
+
   const state = {
     items: [],
     channels: new Set(),
-    filters: { q: '', section: '', channel: '', watchlistOnly: false, watchedOnly: false },
+    filters: { q: '', section: '', channel: '', type: '', watchlistOnly: false, watchedOnly: false },
     watchlist: new Set(JSON.parse(localStorage.getItem('dive:watchlist') || '[]')),
     watched: new Set(JSON.parse(localStorage.getItem('dive:watched') || '[]')),
   // Default to dark mode unless explicitly overridden
@@ -140,6 +143,66 @@
     return id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : null;
   }
 
+  function youTubePlaylistId(url) {
+    try {
+      const u = new URL(url, location.href);
+      if (u.hostname.includes('youtube') && u.pathname === '/playlist') {
+        return u.searchParams.get('list');
+      }
+      return null;
+    } catch { return null; }
+  }
+
+  async function loadPlaylistVideos(item) {
+    if (item.playlistVideos || !item.playlistId) return;
+    if (!YT_API_KEY) { item.playlistVideos = []; item.playlistCount = 0; return; }
+    let videos = [], token = '';
+    try {
+      do {
+        const api = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${item.playlistId}&key=${YT_API_KEY}` + (token ? `&pageToken=${token}` : '');
+        const res = await fetch(api);
+        if (!res.ok) throw new Error('HTTP '+res.status);
+        const data = await res.json();
+        data.items.forEach(v => { videos.push({ title: v.snippet.title, id: v.snippet.resourceId.videoId }); });
+        item.playlistCount = data.pageInfo?.totalResults || videos.length;
+        token = data.nextPageToken;
+      } while(token);
+    } catch (e) { console.error('Playlist fetch failed', e); }
+    item.playlistVideos = videos;
+  }
+
+  async function togglePlaylist(item, listEl, btn, startLink) {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    if (expanded) {
+      btn.setAttribute('aria-expanded','false');
+      listEl.hidden = true;
+      startLink.style.display = 'none';
+      const count = item.playlistCount || (item.playlistVideos ? item.playlistVideos.length : '');
+      btn.textContent = `Show videos${count?` (${count})`:''}`;
+      return;
+    }
+    btn.setAttribute('aria-expanded','true');
+    listEl.hidden = false;
+    await loadPlaylistVideos(item);
+    listEl.innerHTML = '';
+    (item.playlistVideos||[]).forEach(v => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `https://www.youtube.com/watch?v=${v.id}&list=${item.playlistId}`;
+      a.target = '_blank'; a.rel='noopener noreferrer'; a.textContent = v.title;
+      li.appendChild(a); listEl.appendChild(li);
+    });
+    if (item.playlistVideos && item.playlistVideos.length) {
+      startLink.href = `https://www.youtube.com/watch?v=${item.playlistVideos[0].id}&list=${item.playlistId}`;
+      startLink.style.display = 'inline';
+    } else {
+      listEl.innerHTML = '<li>Playlist details unavailable.</li>';
+      startLink.style.display = 'none';
+    }
+    const count = item.playlistCount || (item.playlistVideos ? item.playlistVideos.length : '');
+    btn.textContent = `Hide videos${count?` (${count})`:''}`;
+  }
+
   function isSameOrigin(href) {
     try { const u = new URL(href, document.baseURI); return u.origin === location.origin; }
     catch { return false; }
@@ -162,6 +225,7 @@
     const f = state.filters;
     if (f.section && item.sectionCode !== f.section) return false;
     if (f.channel && item.channel !== f.channel) return false;
+    if (f.type && item.type !== f.type) return false;
     if (f.watchlistOnly && !state.watchlist.has(item.id)) return false;
     if (f.watchedOnly && !state.watched.has(item.id)) return false;
     if (f.q) {
@@ -201,6 +265,7 @@
     if (f.q) p.set('q', f.q);
     if (f.section) p.set('s', f.section);
     if (f.channel) p.set('c', f.channel);
+    if (f.type) p.set('t', f.type);
     if (f.watchlistOnly) p.set('wl', '1');
     if (f.watchedOnly) p.set('wd', '1');
     const url = location.pathname + (p.toString() ? '?' + p.toString() : '') + location.hash;
@@ -211,11 +276,13 @@
     state.filters.q = p.get('q') || '';
     state.filters.section = p.get('s') || '';
     state.filters.channel = p.get('c') || '';
+    state.filters.type = p.get('t') || '';
     state.filters.watchlistOnly = p.get('wl') === '1';
     state.filters.watchedOnly = p.get('wd') === '1';
     if (SELECTORS.search) SELECTORS.search.value = state.filters.q;
     if (SELECTORS.filterSection) SELECTORS.filterSection.value = state.filters.section;
     if (SELECTORS.filterChannel) SELECTORS.filterChannel.value = state.filters.channel;
+    if (SELECTORS.filterType) SELECTORS.filterType.value = state.filters.type;
     if (SELECTORS.filterWatchlist) SELECTORS.filterWatchlist.setAttribute('aria-pressed', String(state.filters.watchlistOnly));
     if (SELECTORS.filterWatched) SELECTORS.filterWatched.setAttribute('aria-pressed', String(state.filters.watchedOnly));
   }
@@ -304,6 +371,15 @@
   t.appendChild(a);
   const metaEl = document.createElement('div'); metaEl.className='meta'; const chip = document.createElement('span'); chip.className='chip'; chip.textContent=item.channel||'Channel'; metaEl.appendChild(chip);
   const desc = document.createElement('div'); desc.className='desc'; desc.textContent=item.description||'';
+        let playlistWrap;
+        if (item.type === 'playlist') {
+          playlistWrap = document.createElement('div'); playlistWrap.className = 'playlist-wrap';
+          const btnPl = document.createElement('button'); btnPl.className='btn'; btnPl.type='button'; btnPl.textContent='Show videos'; btnPl.setAttribute('aria-expanded','false');
+          const startLink = document.createElement('a'); startLink.className='start-playlist'; startLink.target='_blank'; startLink.rel='noopener noreferrer'; startLink.style.display='none'; startLink.textContent='Start playlist';
+          const list = document.createElement('ol'); list.hidden = true;
+          btnPl.addEventListener('click', () => togglePlaylist(item, list, btnPl, startLink));
+          playlistWrap.appendChild(btnPl); playlistWrap.appendChild(startLink); playlistWrap.appendChild(list);
+        }
         const actions = document.createElement('div'); actions.className='actions';
         const btnSave = document.createElement('button'); btnSave.className='btn'; btnSave.type='button'; btnSave.setAttribute('aria-pressed', state.watchlist.has(item.id)?'true':'false'); btnSave.textContent = state.watchlist.has(item.id)?'Saved':'Add to Watchlist';
         btnSave.addEventListener('click', () => { const pressed = btnSave.getAttribute('aria-pressed')==='true'; if (pressed) state.watchlist.delete(item.id); else state.watchlist.add(item.id); btnSave.setAttribute('aria-pressed', String(!pressed)); btnSave.textContent = !pressed ? 'Saved' : 'Add to Watchlist'; persist(); });
@@ -326,7 +402,7 @@
         notesWrap.appendChild(ta);
         btnNotes.addEventListener('click', () => { const expanded = btnNotes.getAttribute('aria-expanded')==='true'; btnNotes.setAttribute('aria-expanded', String(!expanded)); notesWrap.hidden = expanded; });
         actions.appendChild(btnSave); actions.appendChild(btnWatched); actions.appendChild(btnNotes);
-        card.appendChild(t); card.appendChild(metaEl); card.appendChild(desc); card.appendChild(actions); card.appendChild(notesWrap); grid.appendChild(card);
+        card.appendChild(t); card.appendChild(metaEl); card.appendChild(desc); if (playlistWrap) card.appendChild(playlistWrap); card.appendChild(actions); card.appendChild(notesWrap); grid.appendChild(card);
       });
       secEl.appendChild(grid); SELECTORS.content.appendChild(secEl);
     });
@@ -343,6 +419,7 @@
     SELECTORS.search?.addEventListener('input', e => { state.filters.q = e.target.value.trim(); render(); updateUrlFromFilters(); });
     SELECTORS.filterSection?.addEventListener('change', e => { state.filters.section = e.target.value; render(); updateUrlFromFilters(); });
     SELECTORS.filterChannel?.addEventListener('change', e => { state.filters.channel = e.target.value; render(); updateUrlFromFilters(); });
+    SELECTORS.filterType?.addEventListener('change', e => { state.filters.type = e.target.value; render(); updateUrlFromFilters(); });
     SELECTORS.filterWatchlist?.addEventListener('click', () => { state.filters.watchlistOnly = !state.filters.watchlistOnly; SELECTORS.filterWatchlist.setAttribute('aria-pressed', String(state.filters.watchlistOnly)); render(); updateUrlFromFilters(); });
     SELECTORS.filterWatched?.addEventListener('click', () => { state.filters.watchedOnly = !state.filters.watchedOnly; SELECTORS.filterWatched.setAttribute('aria-pressed', String(state.filters.watchedOnly)); render(); updateUrlFromFilters(); });
     window.addEventListener('hashchange', ensureDeepLink);
@@ -440,7 +517,8 @@
     data.sections.forEach(sec => {
       sec.items.forEach(it => {
         const id = idFor(it.href, it.title);
-        const item = { id, sectionCode: sec.code, sectionTitle: sec.title, title: it.title, href: it.href, channel: it.channel, description: it.description };
+        const pid = youTubePlaylistId(it.href);
+        const item = { id, sectionCode: sec.code, sectionTitle: sec.title, title: it.title, href: it.href, channel: it.channel, description: it.description, type: pid ? 'playlist' : 'video', playlistId: pid };
         state.items.push(item);
   if (item.channel) { state.channels.add(item.channel); }
       });
